@@ -1,0 +1,16 @@
+<h1> we are in the article's new view </h1>
+<%= form_for @article do |f| %>
+    <h1>                                                          
+        <%= f.label :title %> <br/>
+        <%= f.text_field :title %>
+    </h1>
+    <h1>                                                          
+        <%= f.label :description %> <br/>
+        <%= f.text_area :description %>
+    </h1>
+    <h1>                                                          
+        <%= f.submit %> <br/>
+    </h1>
+
+
+<% end %>

@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   # only 'get' will change because the route is different now but the pattern is the same
   get 'contact/about' , to: 'contact#about'
   get 'about' , to: 'welcome#about'
+
+  resources :articles
   # if write contact/about in address bar it will go to contact controller and about action method
 end
