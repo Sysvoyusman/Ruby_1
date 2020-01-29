@@ -1,4 +1,14 @@
 <h1> we are in the article's new view </h1>
+<h2> the following errors prevented the applicaiton from running </h2>
+<% if @article.errors.any? %>
+    <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+            <%-#li tag because there can be more than 1 errors-%>
+            <li><%=msg %></li>                             
+        <% end %>
+    </ul>
+<% end %>
+
 <%= form_for @article do |f| %>
     <h1>                                                          
         <%= f.label :title %> <br/>
