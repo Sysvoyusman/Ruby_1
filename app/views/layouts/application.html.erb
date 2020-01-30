@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%-#This file should be as clean as possible-%>
 <html>
   <head>
     <title>RubyOnRailsPart3</title>
@@ -9,12 +10,17 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <%-#render message isnt working here, why ??????????-%>
+    <%= render 'layouts/navigation' %>
+    <%-#render message isnt working here, why ?????????? The name was wrong - All is well-%>
     <%flash.each do |name, msg| %>
       <ul>
         <li><%= msg %></li>
       </ul> 
     <%end%>
-    <%= yield %>
+    <%-#showing all the pages-%>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <%= render 'layouts/footer' -%>
   </body>
 </html>

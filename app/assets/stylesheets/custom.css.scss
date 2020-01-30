@@ -1,3 +1,41 @@
+$navbar-default-bg: rgb(11, 11, 15);
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
+//which styling is going to be down here 
+#logo {
+    float: left;
+    color: #f00;
+    text-align: center;
+}
+
+
+//it is working but still its not showing the image
+.jumbotron{
+    background-image: asset-url('ruby_on_rails_part3/app/assets/images/Monza-02.png');
+    background-size: cover;
+    height: 550px;
+    color: rgb(27, 206, 42);
+    text-align: center;
+}
+
+//calling for all the h1 tags 
+.jumbotron h1 {
+    color: #000;
+    text-align: center;
+}
+//which one is getting the prefernece in above 2 and why ??
+//name of the button class
+.btn-xlarge {
+    font-size: 1.7em;
+    background-color: black;
+}
+
+footer {
+    margin-top: 45px;
+    border-top: 1px solid #eaeaea;
+}
+
+footer small {
+    float: left;
+}
