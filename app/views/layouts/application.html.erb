@@ -9,10 +9,11 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+    <%-#render message isnt working here, why ??????????-%>
     <%flash.each do |name, msg| %>
       <ul>
         <li><%= msg %></li>
-       </ul> 
+      </ul> 
     <%end%>
     <%= yield %>
   </body>
