@@ -1,5 +1,8 @@
 class ArticlesController < ApplicationController
 
+    #before_action :set_article, only: [:edit , :update , :show , :destroy]
+
+    
     def index
         @articles = Article.all     #@articles is an instance variable
     end
@@ -7,6 +10,11 @@ class ArticlesController < ApplicationController
     def new
         @article = Article.new
     end
+
+    def edit
+        @article = Article.find(params[:id]) # cant do it directly/ in order to find the article
+    end
+
 
     def create      #new form submittion is handeled by the create action by default
                     #render plain: params[:article].inspect
@@ -41,15 +49,12 @@ class ArticlesController < ApplicationController
     
 
     def show
-        @article = Article.find(params[:id]) # cant do it directly
+        @article = Article.find(params[:id]) # cant do it directly/ in order to find the article 
     end
 
-    def edit
-        @article = Article.find(params[:id]) # cant do it directly
-    end
-
+   
     def destroy
-        @article = Article.find(params[:id]) # cant do it directly
+        @article = Article.find(params[:id]) # cant do it directly/ in order to find the article
         @article.destroy
         flash[:notice] = "Article was successfully deleted"
         #redirect_to article_path(@article)
@@ -58,6 +63,8 @@ class ArticlesController < ApplicationController
     end
 
     private
+
+
     def article_params
         params.require(:article).permit(:title, :description)
     end
