@@ -23,7 +23,7 @@ class ArticlesController < ApplicationController
                     # redirect_to article_path(@article)
         if @article.save       #if it is going to be saved in the database
                     #do something
-            flash[:notice] = "Article was successfully created" #where we are going to display it
+            flash[:success] = "Article was successfully created" #where we are going to display it
             redirect_to article_path(@article)
         else                   #if it isnt goign to be saved in the database + everything else
             render :new        #show the new view
@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
         @article = Article.find(params[:id])
         if @article.update(article_params)   #if it is going to be saved in the database
                     #do something
-            flash[:notice] = "Article was successfully updated" #where we are going to display it
+            flash[:success] = "Article was successfully updated" #where we are going to display it
                     #if you put edit_article_path if will remain on the same page
             redirect_to article_path(@article)
         else                   #if it isnt goign to be saved in the database + everything else
@@ -42,11 +42,6 @@ class ArticlesController < ApplicationController
         end
     end
 
-
-
-
-
-    
 
     def show
         @article = Article.find(params[:id]) # cant do it directly/ in order to find the article 
@@ -56,7 +51,7 @@ class ArticlesController < ApplicationController
     def destroy
         @article = Article.find(params[:id]) # cant do it directly/ in order to find the article
         @article.destroy
-        flash[:notice] = "Article was successfully deleted"
+        flash[:danger] = "Article was successfully deleted"
         #redirect_to article_path(@article)
         #redirect_to :back #only works before rail 5        
         redirect_back(fallback_location: root_path)

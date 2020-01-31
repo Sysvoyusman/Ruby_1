@@ -1,14 +1,4 @@
-
-<% if @article.errors.any? %>
-    <p align= "center"> These are the errors if any</p>
-    <ul>
-        <% @article.errors.full_messages.each do |msg| %>
-            <%-#li tag because there can be more than 1 errors-%>
-            <li><%=msg %></li>                             
-        <% end %>
-    </ul>
-<% end %>
-
+<%= render 'shared/errors' , obj: @article %>   
 <div class = 'row'>
     <div calss = 'col-md-12'>
         <%-#form for helper - we already haev it so we willnt include form-horizebtal-%>

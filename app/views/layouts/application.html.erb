@@ -12,11 +12,7 @@
   <body>
     <%= render 'layouts/navigation' %>
     <%-#render message isnt working here, why ?????????? The name was wrong - All is well-%>
-    <%flash.each do |name, msg| %>
-      <ul>
-        <li><%= msg %></li>
-      </ul> 
-    <%end%>
+    <%= render 'layouts/messages' %>
     <%-#showing all the pages-%>
     <div class="container">
       <%= yield %>
