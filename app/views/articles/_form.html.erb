@@ -1,5 +1,6 @@
-<h2> the following errors prevented the applicaiton from running </h2>
+
 <% if @article.errors.any? %>
+    <p align= "center"> These are the errors if any</p>
     <ul>
         <% @article.errors.full_messages.each do |msg| %>
             <%-#li tag because there can be more than 1 errors-%>
@@ -8,20 +9,40 @@
     </ul>
 <% end %>
 
-<%= form_for @article do |f| %>
-    <h1>                                                          
-        <%= f.label :title %> <br/>
-        <%= f.text_field :title %>
-    </h1>
-    <h1>                                                          
-        <%= f.label :description %> <br/>
-        <%= f.text_area :description %>
-    </h1>
-    <h1>                                                          
-        <%= f.submit %> <br/>
-    </h1>
+<div class = 'row'>
+    <div calss = 'col-md-12'>
+        <%-#form for helper - we already haev it so we willnt include form-horizebtal-%>
+        <%= form_for(@article, :html => {class: "form-horizontal" , role: "form"}) do |f| %>
+            <div class="form-group">
+                <div class="control-label col-sm-2 ">
+                                                                      
+                <%= f.label :title %>
+                
+                </div>
+                <div class="col-sm-8">
+                    <%= f.text_field :title, class:"form-control" , placeholder: "Title of article", autofocus: true %>
+                </div>
+            </div>    
+            <div class="form-group">
+                <div class="control-label col-sm-2 ">     
+
+                <%= f.label :description %> 
+
+                </div>
+                <div class="col-sm-8">
+                <%= f.text_area :description, rows: 10 , class:"form-control" , placeholder: "Description of article", autofocus: true %>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10 ">                                                       
+                    <%= f.submit class: 'btn btn-primary btn-lg' %> 
+                </div>
+            </div>
 
 
-<% end %>
-
-<%= link_to "Go back to articles page", articles_path %>
+        <% end %>
+        <div class= "col-xs-4 col-xs-offset-4">
+            [ <%= link_to "Cancel request and Return to articles page", articles_path %> ] 
+        </div>
+    </div>
+</div>
