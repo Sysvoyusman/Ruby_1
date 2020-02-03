@@ -9,15 +9,26 @@
     </tr>
     <% @articles.each do |article| %> 
     <%-#@articles instacne includes all the articles but we need to do this on all articles one by one  -%>
-    <tr>
-        <td> <%= article.title %> </td> 
-        <td> <%= article.description %> </td>
-        <%-# link_to  "Edit", edit_article_path (But it also needs the id for the article -> check paths) -%>
-        <td> <%=  link_to  "Edit", edit_article_path(article) %> </td>
-        <td> <%=  link_to  "Show", article_path(article) %> </td> 
-        <%-# Same as "Show" but method will tell rail that this is destroy method , destroy this + confirm -%>
-        <%-# It is deleted from the database but shows error in show -%>
-        <td> <%=  link_to  "Delete", article_path(article) , method: :delete , data: {confirm: "Sure?"} %> </td>
-    </tr>
+    <%-# Still not being used -%>
+    <div class ="article-space">
+        <tr>
+            <td> <%= article.title %> </td> 
+            <td> <%= article.description %> </td>
+            <%-# If is there just to prevent if some article doesnt have user -%>
+            <div class ="article-meta-details">
+            <small> Created by: <%= article.user.username if article.user%> , 
+                <%= time_ago_in_words(article.created_at) %> ago ,
+                last updated: <%time_ago_in_words(article.updated_at) %> ago 
+            </small>
+            </div>
+
+            <%-# link_to  "Edit", edit_article_path (But it also needs the id for the article -> check paths) -%>
+            <td> <%=  link_to  "Edit", edit_article_path(article) %> </td>
+            <td> <%=  link_to  "Show", article_path(article) %> </td> 
+            <%-# Same as "Show" but method will tell rail that this is destroy method , destroy this + confirm -%>
+            <%-# It is deleted from the database but shows error in show -%>
+            <td> <%=  link_to  "Delete", article_path(article) , method: :delete , data: {confirm: "Sure?"} %> </td>
+        </tr>
+    </div>
     <% end %>
 </table>
