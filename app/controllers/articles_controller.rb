@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
 
     
     def index
-        @articles = Article.all     #@articles is an instance variable
+        @articles = Article.paginate(page: params[:page] , per_page: 2)     #@articles is an instance variable
     end
 
     def new

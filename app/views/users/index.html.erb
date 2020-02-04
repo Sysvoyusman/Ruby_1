@@ -1,5 +1,8 @@
  <h1 align="center">Showing all the users</h1>
  <%-#first one is for size and second one is for position-%>
+ <div align="center">
+    <%= will_paginate %>
+</div>
  <div class="well col-md-8 col-md-offset-2">    
     <% @users.each do |user| %>
         <div class="well col-md-4 col-md-offset-4">
@@ -10,4 +13,7 @@
             <li><small><%= pluralize(user.articles.count , "article") if user.articles %></small></li>
         </div>
     <% end %>
+</div>
+<div align="center">
+    <%= will_paginate %>
 </div>
