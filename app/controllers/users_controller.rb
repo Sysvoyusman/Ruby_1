@@ -4,9 +4,11 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.new(user_params)
+        #debugger
+        @user = User.new(user_params) #cant do it directly
         if @user.save
-            flash[:success] = "Welcome to the alpha blog #{@user.username}"
+            flash[:success] = "Welcome to the alpha blog #{@user.username} with email #{@user.email}"
+
             redirect_to articles_path
         else
             flash[:success] = "Some error has occured #{@user.username}"
