@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   resources :articles
   
   get 'signup' , to: 'users#new'
-  post 'users' , to: 'users#create'
-  
-  #resources :users , except: [:new]
+  #post 'users' , to: 'users#create'  #this doesnt work with creating other routes
+
+  resources :users , except: [:new]
 
   # if write contact/about in address bar it will go to contact controller and about action method
 end
