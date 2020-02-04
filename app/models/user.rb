@@ -12,4 +12,6 @@ class User < ApplicationRecord
               uniqueness: {case_sensitive: false} ,
               length: {minimum: 3 , maximum: 25} , 
               format: {with: VALID_EMAIL_REGEX}
+    #should be there before user gets created
+    has_secure_password
 end  
