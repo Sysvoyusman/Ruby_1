@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
     def create      #new form submittion is handeled by the create action by default
                     #render plain: params[:article].inspect
         @article = Article.new(article_params)
-        @article.user = User.first
+        @article.user = current_user
                     # @article.save
                     # redirect_to article_path(@article)
         if @article.save       #if it is going to be saved in the database
