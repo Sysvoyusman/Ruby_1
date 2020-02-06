@@ -12,7 +12,7 @@ $navbar-default-bg: rgb(11, 11, 15);
 
 //it is working but still its not showing the image
 .jumbotron{
-    background-image: asset-url('ruby_on_rails_part3/app/assets/images/Monza-02.png');
+    background-image: asset-url('assets/Monza-02.png');
     background-size: cover;
     height: 550px;
     color: rgb(27, 206, 42);
