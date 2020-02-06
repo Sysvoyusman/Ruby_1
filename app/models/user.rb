@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-    has_many :articles
+    #whatever articles this user have it will destroy these articles if the user gets destroyed
+    has_many :articles , dependent: :destroy
     before_save { self.email = email.downcase} #before user hots the database it will check for this
     
     #length of the user name

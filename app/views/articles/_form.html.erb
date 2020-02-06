@@ -1,7 +1,11 @@
 <%= render 'shared/errors' , obj: @article %>   
 <div class = 'row'>
     <div calss = 'col-md-12'>
+    <% 
+=begin %>
         <% if logged_in? && current_user == @article.user %>
+        <% 
+=end %>
             <%-#form for helper - we already haev it so we willnt include form-horizebtal-%>
             <%= form_for(@article, :html => {class: "form-horizontal" , role: "form"}) do |f| %>
                 <div class="form-group">
@@ -35,9 +39,13 @@
             <div class= "col-xs-4 col-xs-offset-4">
                 [ <%= link_to "Cancel request and Return to articles page", articles_path %> ] 
             </div>
+        <% 
+=begin %>
         <% else %>
             <h1 align= "center"> Sorry But -- You first have to login</h1>
             <li align= "center"> <%= link_to  "Log in", login_path %></li>
         <% end %>
+        <% 
+=end %>
     </div>
 </div>
