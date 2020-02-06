@@ -13,8 +13,9 @@ class UsersController < ApplicationController
         #debugger
         @user = User.new(user_params) #cant do it directly
         if @user.save
+            session[:user_id] = @user.id
             flash[:success] = "Welcome to the alpha blog #{@user.username} with email #{@user.email}"
-            redirect_to articles_path
+            redirect_to user_path(@user)
         else
             flash[:danger] = "Some error has occured #{@user.username}"
             render 'new'
