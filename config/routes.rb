@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   get 'login' , to: 'sessions#new' #simple login
   post 'login' , to: 'sessions#create'  #create action
   delete 'logout' , to: 'sessions#destroy' 
+
+  resources :categories, except: [:destroy]
   # if write contact/about in address bar it will go to contact controller and about action method
 end
