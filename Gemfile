@@ -11,7 +11,7 @@ gem 'will_paginate' , '3.1.7'
 gem 'bootstrap-will_paginate' , '1.0.0'
 gem 'rails-controller-testing'
 # Use Puma as the app server
-gem 'puma', '~> 4.1'
+gem 'puma', '~> 5.5'
 # Use SCSS for stylesheets
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.4.1'
